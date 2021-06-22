@@ -13,6 +13,7 @@ RUN mkdir -p ros_catkin_ws/src && \
     cd /ros_catkin_ws && \
     rosinstall_generator ros_core --rosdistro noetic --deps --tar > noetic-core.rosinstall && \
     vcs import --input noetic-core.rosinstall ./src && \
+    apt update && \
     rosdep install --from-paths ./src --ignore-packages-from-source --rosdistro noetic -y
 
 RUN python3 -m pip install catkin-pkg
